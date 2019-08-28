@@ -1,0 +1,26 @@
+version: "3.6"
+
+networks:
+  splunknet:
+    driver: bridge
+    attachable: true
+
+services:
+  sbf:
+    restart: always
+    networks:
+      splunknet:
+        aliases:
+          - sbf
+    image: ${SPLUNK_IMAGE:-tmartin14/splunk_business_flow:latest}
+    container_name: splunk_business_flow
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_PASSWORD=changeme
+      - SPLUNK_HEC_TOKEN=00000000-0000-0000-0000-000000000000
+      - DEBUG=true
+      - SPLUNK_APPS_URL=/tmp/splunk-business-flow_102.tgz
+    ports:
+      - 8000:8000
+      - 8088:8088
+      - 8089:8089
