@@ -16,7 +16,7 @@
 #docker run -t --name=splunk_business_flow -d -p 8000:8000 -p 8088:8088 \
     -e "SPLUNK_START_ARGS=--accept-license" \
     -e "SPLUNK_PASSWORD=changeme" 
-    -e "SPLUNK_APPS_URL=/tmp/splunk-business-flow_102.tgz" \
+    -e "SPLUNK_APPS_URL=/tmp/splunk-business-flow.tgz" \
 tmartin14/splunk_business_flow:latest
 
 
